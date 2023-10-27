@@ -1,0 +1,73 @@
+// Para usar uno u otro tema hay que alternar entre base1 y base2
+@use "base2" as *;
+
+// Valores comunes
+$fondo-fonts: blanchedalmond;
+$fondo-box-shadow: beige;
+$regular-font: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+$tamanio-caja: 128px;
+$tamanio-letra: 16px;
+
+* {
+  box-sizing: border-box;
+}
+
+// Se usa el body como flexbox
+body {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+}
+
+div {
+  width: $tamanio-caja;
+  height: $tamanio-caja;
+}
+
+// Flex en las cajas para centrar su contenido
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $radio-borde;
+  font-family: $secondary-font;
+  font-size: $tamanio-letra;
+  border: 1px solid lightgray;
+}
+
+.base {
+  background-color: $fondo-base;
+}
+
+.important {
+  background-color: $fondo-important;
+}
+
+.warning {
+  background-color: $fondo-warning;
+}
+
+.fonts {
+  background-color: $fondo-fonts;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.primary-font {
+  font-family: $primary-font;
+  font-weight: $primary-font-weight;
+}
+
+.secondary-font {
+  font-family: $secondary-font;
+  font-weight: $secondary-font-weigth;
+}
+
+.box-shadow {
+  background-color: $fondo-box-shadow;
+  box-shadow: $shadow-box;
+}

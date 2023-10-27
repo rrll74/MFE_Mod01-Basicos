@@ -1,0 +1,85 @@
+// Declaración de base
+$separacion: 4px;
+$aire: 8px;
+$box-size: 128px;
+$base1: red;
+$base2: blue;
+$base3: green;
+$base: white;
+$porcentaje_degradado: 5%;
+$radio-borde: 4%;
+
+* {
+  box-sizing: border-box;
+}
+
+// Body con flex vertical para las 3 filas de datos
+body {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: $separacion $separacion;
+}
+
+// Container con flex horizontal para incluir los cuadros
+.container {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  gap: $separacion $separacion;
+}
+
+// Cada caja la hacemos flex para centrar el texto en vertical y horizontal
+.box {
+  padding: $aire;
+  width: $box-size;
+  height: $box-size;
+  border-radius: $radio-borde;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Ponemos los colores de los textos
+[class*="base-color-"] {
+  color: $base;
+}
+
+[class*="darken-"],
+[class*="lighten-"] {
+  color: darken($base, 20%);
+}
+
+// Coloreamos las cajas con sus aclarados y oscurecidos correspondientes
+@for $i from 1 through 4 {
+  @for $j from 1 through 3 {
+    // Elegimos el color que toque
+    $color: white;
+    @if $j == 1 {
+      $color: $base1;
+    } @else if $j == 2 {
+      $color: $base2;
+    } @else {
+      $color: $base3;
+    }
+
+    // Coloreamos la base
+    .base-color-#{$j} {
+      background-color: $color;
+    }
+    // Coloreamos los oscureciods
+    [class*="darken-#{$j}-#{$i}"] {
+      background-color: darken($color, $i * $porcentaje_degradado);
+    }
+    //Coloreamos los aclarados
+    [class*="lighten-#{$j}-#{$i}"] {
+      background-color: lighten($color, $i * $porcentaje_degradado);
+      color: darken(
+        $base,
+        $i * 25%
+      ); // Oscurecemos el texto para que se vea un poco mejor
+    }
+  }
+}
