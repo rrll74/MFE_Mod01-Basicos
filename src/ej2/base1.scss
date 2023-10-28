@@ -1,9 +1,14 @@
+@font-face {
+  font-family: roboto-regular;
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
 // Valores base
 $fondo-base: red;
 $fondo-important: brown;
 $fondo-warning: darksalmon;
 
-$primary-font: Arial, "Times New Roman";
+$primary-font: roboto-regular, Arial, "Times New Roman";
 $primary-font-weight: normal;
 $secondary-font: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 $secondary-font-weigth: bold;

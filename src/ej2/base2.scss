@@ -1,11 +1,21 @@
+@font-face {
+  font-family: raleway-regular;
+  src: url("../fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: sometype-mono-regular;
+  src: url("../fonts/Sometype_Mono/static/SometypeMono-Regular.ttf");
+}
+
 // Valores base
 $fondo-base: blue;
 $fondo-important: darkblue;
 $fondo-warning: cyan;
 
-$primary-font: Copperplate, "Copperplate Gothic Light", fantasy;
+$primary-font: raleway-regular, Arial, sans-serif;
 $primary-font-weight: normal;
-$secondary-font: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+$secondary-font: sometype-mono-regular, Georgia, serif;
 $secondary-font-weigth: normal;
 
 $radio-borde: 4px;

@@ -1,0 +1,114 @@
+// Valores base
+@font-face {
+  font-family: raleway;
+  src: url("../fonts/Raleway/static/Raleway-Medium.ttf");
+}
+
+$font-size-root: 12px;
+$aire: 4px;
+$container-background-color: lightgrey;
+$card-width: 200px;
+$card-background-color: white;
+$title-color: black;
+$subject-color: dimgray;
+$date-caption-color: black;
+$date-caption-weigth: bold;
+$date-published-color: olive;
+$date-published-weight: normal;
+$button-background-color: lightgreen;
+
+* {
+  box-sizing: border-box;
+  font-size: $font-size-root;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: raleway, Arial, sans-serif;
+}
+
+@mixin centrado() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: $aire $aire * 2;
+  background-color: $container-background-color;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: $aire;
+}
+
+.card {
+  width: $card-width;
+  background-color: $card-background-color;
+  border: 1px solid grey;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 0.5fr 150px 0.5fr 0.5fr;
+
+  .img {
+    @include centrado();
+  }
+
+  img {
+    width: 100%;
+    height: calc($card-width * 3 / 4);
+  }
+
+  .title {
+    color: $title-color;
+    @include centrado();
+    justify-content: flex-start;
+
+    h1 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      padding: 0px $aire * 2;
+    }
+  }
+
+  .subject {
+    color: $subject-color;
+    padding: 0px $aire * 2;
+    font-size: 0.8rem;
+    overflow: auto;
+  }
+
+  .date {
+    @include centrado();
+    justify-content: flex-end;
+    font-size: 0.7rem;
+    padding: 0px $aire * 2;
+
+    .caption {
+      color: $date-caption-color;
+      font-weight: $date-caption-weigth;
+      padding: 0px $aire;
+    }
+
+    .published {
+      color: $date-published-color;
+      font-weight: $date-published-weight;
+    }
+  }
+
+  .button {
+    @include centrado();
+    padding: 0px $aire*2;
+
+    button {
+      border-radius: 0px;
+      border: none;
+      color: darken($button-background-color,50%);
+      background-color: $button-background-color;
+      font-weight: bold;
+      width: 100%;
+      padding: $aire*2 0px;
+    }
+  }
+}

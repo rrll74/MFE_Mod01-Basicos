@@ -1,10 +1,14 @@
 // Para usar uno u otro tema hay que alternar entre base1 y base2
-@use "base2" as *;
+@use "base1" as *;
 
 // Valores comunes
+@font-face {
+  font-family: bangers;
+  src: url("../fonts/Bangers/Bangers-Regular.ttf");
+}
 $fondo-fonts: blanchedalmond;
 $fondo-box-shadow: beige;
-$regular-font: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+$regular-font: bangers, Arial, sans-serif;
 $tamanio-caja: 128px;
 $tamanio-letra: 16px;
 
@@ -32,7 +36,7 @@ div {
   justify-content: center;
   align-items: center;
   border-radius: $radio-borde;
-  font-family: $secondary-font;
+  font-family: $regular-font;
   font-size: $tamanio-letra;
   border: 1px solid lightgray;
 }

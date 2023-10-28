@@ -1,0 +1,64 @@
+// Valores base
+$theme-background: darkcyan;
+$theme-color: white;
+$aire: 4px;
+$cell-width: 150px;
+$opciones: 4;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+@mixin remark() {
+  background-color: darken($theme-background, 10%);
+  cursor: default;
+}
+
+nav {
+  //border: 3px solid black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  gap: $aire;
+
+  span {
+    background-color: $theme-background;
+    width: $cell-width;
+    display: flex;
+    justify-content: center;
+
+    a {
+      color: $theme-color;
+      text-decoration: none;
+      padding: $aire;
+
+      &:hover {
+        @include remark();
+      }
+    }
+  }
+}
+
+// Sólo se pone en filas cuando no caben en columnas
+@function ancho() {
+  @return ($cell-width + $aire) * $opciones;
+}
+
+@media screen and (width <= ancho()) {
+  nav {
+    flex-direction: column;
+
+    span {
+      width: auto;
+
+      &:hover {
+        @include remark();
+      }
+    }
+  }
+}
